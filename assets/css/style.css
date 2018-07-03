@@ -1,3 +1,9 @@
 .delete {
   color: red;
 }
+
+.alerts {
+  padding: 5px;
+  text-align: center;
+  color: red;
+}

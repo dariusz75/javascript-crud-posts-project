@@ -26,6 +26,10 @@ class UI {
       this.post.innerHTML = output;
     });
   }
+
+  showAlert() {
+    document.getElementById('alerts').textContent = 'Post added';
+  }
 }
 
 

@@ -31,13 +31,8 @@ Compile and build
 $ npm run build
 ```
 
-## More Info
+### Run backend server
 
-### Author
-
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
-
-### License
-
-This project is licensed under the MIT License
+```sh
+$ npm run json:server
+```
