@@ -21,9 +21,14 @@
       "id": 4
     },
     {
-      "title": "Post Five",
-      "body": "This is post five",
+      "title": "post 5",
+      "body": "test 5",
       "id": 5
+    },
+    {
+      "title": "Post 6",
+      "body": "test 6",
+      "id": 6
     }
   ]
 }

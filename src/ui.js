@@ -30,6 +30,15 @@ class UI {
   showAlert() {
     document.getElementById('alerts').textContent = 'Post added';
   }
+
+  clearAlert() {
+    document.getElementById('alerts').textContent = '';
+  }
+  
+  clearInputs() {
+    this.titleInput.value = '';
+    this.bodyInput.value = '';
+  }
 }
 
 

@@ -32,6 +32,12 @@ function submitPost() {
     ui.showAlert();
     return getPosts();
   })
+  .then(function(){
+    ui.clearInputs();
+  })
+  .then(function(){
+    setTimeout(ui.clearAlert, 1500);
+  })
   .catch(error => console.log(error));
 
   
