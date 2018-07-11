@@ -28,6 +28,9 @@ function submitPost() {
   }
 
   //Create post
+  if(title === '' || body === '') {
+    ui.validateInputs();
+  } else {
   http.post('http://localhost:3000/posts', data)
   .then(function(data) {
     ui.showAlert();
@@ -35,11 +38,12 @@ function submitPost() {
   })
   .then(function(){
     ui.clearInputs();
+    ui.clearValidation();
   })
   .then(function(){
     setTimeout(ui.clearAlert, 1500);
   })
   .catch(error => console.log(error));
-
+  }
   
 }

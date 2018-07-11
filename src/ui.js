@@ -27,6 +27,16 @@ class UI {
     });
   }
 
+  validateInputs() {
+    document.querySelector('#title').placeholder='Please enter Post Title';
+    document.querySelector('#body').placeholder='Please enter Body Title';
+  }
+
+  clearValidation() {
+    document.querySelector('#title').placeholder='Post Title';
+    document.querySelector('#body').placeholder='Body Title';
+  }
+
   showAlert() {
     document.getElementById('alerts').textContent = 'Post added';
   }
