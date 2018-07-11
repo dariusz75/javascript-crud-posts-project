@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', getPosts);
 //Add post event listener
 document.querySelector('.post-submit').addEventListener('click', submitPost);
 
+
 //Get posts function
 function getPosts() {
   http.get('http://localhost:3000/posts')

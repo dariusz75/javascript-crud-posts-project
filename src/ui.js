@@ -39,6 +39,7 @@ class UI {
     this.titleInput.value = '';
     this.bodyInput.value = '';
   }
+  
 }
 
 
