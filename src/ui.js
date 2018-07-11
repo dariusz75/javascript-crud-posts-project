@@ -37,8 +37,8 @@ class UI {
     document.querySelector('#body').placeholder='Body Title';
   }
 
-  showAlert() {
-    document.getElementById('alerts').textContent = 'Post added';
+  showAlert(message) {
+    document.getElementById('alerts').textContent = message;
   }
 
   clearAlert() {

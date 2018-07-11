@@ -36,7 +36,7 @@ function submitPost() {
   } else {
   http.post('http://localhost:3000/posts', data)
   .then(function(data) {
-    ui.showAlert();
+    ui.showAlert('Post Added');
     return getPosts();
   })
   .then(function(){
@@ -58,8 +58,11 @@ function deletePost(e) {
     if(confirm('Are you sure?')) {
       http.delete(`http://localhost:3000/posts/${id}`)
         .then(data => {
-          //ui.showAlert('Post removed', 'alert alert-success');
+          ui.showAlert('Post Deleted');
           getPosts();
+        })
+        .then(function(){
+          setTimeout(ui.clearAlert, 1500);
         })
         .catch(err => console.log(err));
     }
