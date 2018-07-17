@@ -49,6 +49,13 @@ class UI {
     this.titleInput.value = '';
     this.bodyInput.value = '';
   }
+
+  // Fill form to edit
+  fillForm(data) {
+    this.titleInput.value = data.title;
+    this.bodyInput.value = data.body;
+    this.idInput.value = data.id;
+  }
   
 }
 

@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', getPosts);
 //Add post event listener
 document.querySelector('.post-submit').addEventListener('click', submitPost);
 
+//Edit state post event listener
+document.querySelector('#posts').addEventListener('click', enableEdit);
+
 //Delete post event listener
 document.querySelector('#posts').addEventListener('click', deletePost);
 
@@ -66,6 +69,24 @@ function deletePost(e) {
         })
         .catch(err => console.log(err));
     }
+  }
+  e.preventDefault();
+}
+
+//Enable edit post state
+function enableEdit(e) {
+  if(e.target.parentElement.classList.contains('edit')) {
+    const id = e.target.parentElement.dataset.id;
+    const title= e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+    const body = e.target.parentElement.previousElementSibling.textContent;
+    
+    const data = {
+      id,
+      title,
+      body
+    }
+    // Fill the form with current post
+    ui.fillForm(data);
   }
   e.preventDefault();
 }
