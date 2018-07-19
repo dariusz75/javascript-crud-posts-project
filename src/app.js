@@ -13,6 +13,9 @@ document.querySelector('#posts').addEventListener('click', enableEdit);
 //Delete post event listener
 document.querySelector('#posts').addEventListener('click', deletePost);
 
+//Cancel event listener
+document.querySelector('.card-form').addEventListener('click', cancelEdit);
+
 
 //Get posts function
 function getPosts() {
@@ -28,29 +31,35 @@ function submitPost() {
   const title = document.querySelector('#title').value;
   const body = document.querySelector('#body').value;
 
-  const data = {
-    title: title,
-    body: body
+  if(title === '' || body === '') {
+    ui.showAlert('Please fill all fields');
+  } else {
+    const data = {
+      title: title,
+      body: body
+    }
+  
+    //Create post
+    if(title === '' || body === '') {
+      ui.validateInputs();
+    } else {
+    http.post('http://localhost:3000/posts', data)
+    .then(function(data) {
+      ui.showAlert('Post Added');
+      return getPosts();
+    })
+    .then(function(){
+      ui.clearInputs();
+      ui.clearValidation();
+    })
+    .then(function(){
+      setTimeout(ui.clearAlert, 1500);
+    })
+    .catch(error => console.log(error));
+    }
   }
 
-  //Create post
-  if(title === '' || body === '') {
-    ui.validateInputs();
-  } else {
-  http.post('http://localhost:3000/posts', data)
-  .then(function(data) {
-    ui.showAlert('Post Added');
-    return getPosts();
-  })
-  .then(function(){
-    ui.clearInputs();
-    ui.clearValidation();
-  })
-  .then(function(){
-    setTimeout(ui.clearAlert, 1500);
-  })
-  .catch(error => console.log(error));
-  }
+ 
   
 }
 
@@ -87,6 +96,14 @@ function enableEdit(e) {
     }
     // Fill the form with current post
     ui.fillForm(data);
+  }
+  e.preventDefault();
+}
+
+//Cancel edit state
+function cancelEdit(e) {
+  if (e.target.classList.contains('post-cancel')) {
+    ui.changeFormState('add');
   }
   e.preventDefault();
 }

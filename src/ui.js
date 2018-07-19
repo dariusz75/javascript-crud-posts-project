@@ -50,6 +50,10 @@ class UI {
     this.bodyInput.value = '';
   }
 
+  clearIdInput() {
+    this.idInput.value = '';
+  }
+
   //Change form state
   changeFormState(type) {
     if(type === 'edit') {
@@ -65,7 +69,16 @@ class UI {
       this.postSubmit.className = 'post-submit btn btn-warning';
 
     } else {
-
+      this.postSubmit.textContent = 'Post It';
+      this.postSubmit.className = 'post-submit btn btn-primary btn-block';
+      //Remove Cancel Post button if it's there
+      if(document.querySelector('.post-cancel')) {
+        document.querySelector('.post-cancel').remove();
+      }
+      //Clear ID from hidden field
+      this.clearIdInput();
+      //Clear text
+      this.clearInputs();
     }
   }
 
